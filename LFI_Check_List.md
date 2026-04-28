@@ -1,4 +1,4 @@
-## 脆弱性がありそうなパラメータの特定
+## 脆弱性がありそうなパラメータ例
 
 
 
@@ -39,3 +39,6 @@ C:/windows/win.ini
     open_basedir restriction in effect:
 
         # LFIはあるが、読み込めるディレクトリが制限されている
+
+
+[PHP_Filter_Wrapper.mdへ](PHP_Filter_Wrapper.md)
