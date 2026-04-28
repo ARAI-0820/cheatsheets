@@ -23,5 +23,3 @@
 ### exiftool
 画像やPDFのメタデータを確認する
 - `exiftool [file]` # メタデータを表示
-
-- 
