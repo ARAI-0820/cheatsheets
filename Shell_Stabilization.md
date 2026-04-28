@@ -14,5 +14,4 @@
 3. `reset` (必要な場合。画面が崩れたら実行)
 
 ## Step 3: Variables
-- `export TERM=xterm`
-- `export SHELL=bash`
+- `export TERM=xterm
