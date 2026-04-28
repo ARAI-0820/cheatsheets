@@ -19,12 +19,10 @@
         ?lang= (言語切り替えファイルなどを読み込んでいる場合)
 
 ### Linux
-../../../../../../etc/passwd
-/etc/passwd
+`../../../../../../etc/passwd`
 
 ### Windows
-../../../../../../windows/win.ini
-C:/windows/win.ini
+`../../../../../../windows/win.ini`
 
 後ろに拡張子（.phpなど）が強制付与される場合もある
 
