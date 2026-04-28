@@ -1,92 +1,58 @@
-Enumeration & Discovery Cheat Sheet
-1. Port Scanning (ポートスキャン)
+# Enumeration & Discovery
 
-ターゲットでどのサービスが動いているかを高速に調査します。
-RustScan
 
-Nmapを内部で呼び出す、非常に高速なポートスキャナーです。
-Bash
+### 1. Port Scanning
 
+```
 rustscan -a $IP -- -sV -sC
+```
 
-    解説: まずRustScanが全ポートを高速スキャンし、開いているポートに対してのみNmapの詳細スキャン（-sV: バージョン特定、-sC: 標準スクリプト実行）を行います。
+` -r 1-65535` 全ポートを対象にする
 
-    おすすめオプション:
 
-        -r 1-65535: 全ポートを対象にする（デフォルトで漏れがないように）。
+### 2. Web Directory Discovery
 
-        --ulimit 5000: 接続の同時制限数を上げ、さらに高速化する。
+```
+gobuster dir -u http://$IP -w [wordlist]
+```
 
-2. Web Directory Discovery (ディレクトリ探索)
+`-x php,txt,html` 指定した拡張子のファイルも同時に探索
 
-隠しページや管理パネルを見つけるためのツールです。
-GoBuster
+`-t 50` スレッド数を増やして高速化
 
-Go言語製で非常に高速なディレクトリ・ファイル探索ツールです。
-Bash
+### 3. Fuzzing
 
-gobuster dir -u http://$IP -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+`ffuf -u http://$IP/FUZZ -w [Wordlist]`
 
-    解説: 辞書ファイル（Wordlist）を使って、URLの後ろに続くディレクトリ名をしらみつぶしに探します。
+`wfuzz -c -z file,[wordlist] http://TARGET/FUZZ`
 
-    おすすめオプション:
+#### wfuzzオプション
 
-        -x php,txt,html: 指定した拡張子のファイルも同時に探します。
+`--hc`		指定したステータスコードを隠す（例: --hc 404）
 
-        -t 50: スレッド数を増やして高速化（サーバーへの負荷に注意）。
+`--sc`	    指定したステータスコードのみ表示（例: --sc 200）
 
-3. Fuzzing (ファジング)
+`--hl`		指定した「行数」の結果を隠す
 
-パラメータやディレクトリなど、あらゆる場所を「FUZZ（変動する値）」としてテストします。
-ffuf / wfuzz / dirsearch
+`--hw`		指定した「単語数」の結果を隠す
 
-    ffuf: 現在最も人気のある高速ファザー。
+`--hh`		指定した「文字数」の結果を隠す
 
-        ffuf -u http://$IP/FUZZ -w [Wordlist]
 
-    wfuzz: 柔軟性が高く、複数の場所を同時にファズするのに向いています。
+### 4. Vulnerability Scan
 
-    dirsearch: Python製で、インストール不要で使いやすく、結果が色分けされて見やすいのが特徴。
 
-4. Vulnerability Scan (脆弱性スキャン)
-
-既知の脆弱性や設定ミスを自動でチェックします。
-Nikto
-
-Webサーバーの古いバージョンや、危険なファイル、設定ミスをスキャンします。
-Bash
-
+```
 nikto -h http://$IP
+```
 
-    解説: Webサーバー全般の「低くぶら下がった果実（簡単に取れる脆弱性）」を探すための定番ツールです。
 
-WhatWeb
-
-Webサイトが使っているCMS（WordPressなど）やライブラリ、サーバーの種類を特定します。
-Bash
-
+```
 whatweb http://$IP
+```
 
-5. SMB Enumeration (SMB情報の列挙)
+### 5. SMB Enumeration
 
-WindowsやLinuxの共有フォルダ（ポート445）が開いている場合に使用します。
-enum4linux-ng
-
-SMB共有からユーザー名、共有フォルダ、OS情報などを抜き出す次世代ツールです。
-Bash
-
+```
 enum4linux-ng -A $IP
-
-    解説: 以前の enum4linux をPythonで書き直したもので、出力が非常に読みやすくなっています。-A は「すべて実行」を意味します。
-
-6. 特定パターンの探索（ユーザーディレクトリ等）
-GoBuster Fuzzモード
-Bash
-
-gobuster fuzz -w [Wordlist] -u http://$IP/~FUZZ -b 404
-
-    解説: URLの途中（この例では ~ の後ろ）をファズします。
-
-    おすすめオプション:
-
-        -b 404,403: 特定のステータスコード（404 Not Foundや403 Forbidden）を除外して表示します。
+```
