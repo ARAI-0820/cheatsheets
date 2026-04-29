@@ -51,7 +51,23 @@ nikto -h http://$IP
 whatweb http://$IP
 ```
 
-### 5. SMB Enumeration
+### 5. Vulnerability Research
+
+#### Service/CMS Version Identified
+
+Searchsploit:  `searchsploit [Name] [Version]`
+
+Google Search: `"[Name] [Version] exploit"` or `"CVE-[Year]-[ID]"`
+
+GitHub:        `"[Name] [Version] PoC"`
+
+####  CMS Specific
+WordPress: `wpscan --url [URL] --enumerate vp` (脆弱なプラグイン調査)
+
+Joomla:    `joomscan -u [URL]`
+
+
+### 6. SMB Enumeration
 
 ```
 enum4linux-ng -A $IP
