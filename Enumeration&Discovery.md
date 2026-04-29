@@ -16,6 +16,18 @@ rustscan -a $IP -- -sV -sC
 gobuster dir -u http://$IP -w [wordlist]
 ```
 
+#### よく使う辞書
+
+```
+/usr/share/wordlists/dirb/common.txt
+```
+
+```
+/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+```
+
+
+
 `-x php,txt,html` 指定した拡張子のファイルも同時に探索
 
 `-t 50` スレッド数を増やして高速化
