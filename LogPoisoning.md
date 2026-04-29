@@ -11,7 +11,19 @@
     
     Apache (Debian/Ubuntu): /var/log/apache2/access.log
     Apache (RHEL/CentOS): /var/log/httpd/access_log
-    wfuzz -c -z file,/usr/share/wordlists/LFI.txt [フィルターオプション] "http://TARGETIP/?PARAMETER=../../../../../../FUZZ"
+    wfuzz -c -z file,/usr/share/wordlists/LFI.txt [wfuzzオプション] "http://TARGETIP/?PARAMETER=../../../../../../FUZZ"
+
+#### wfuzzオプション
+
+`--hc`		指定したステータスコードを隠す（例: --hc 404）
+
+`--sc`	    指定したステータスコードのみ表示（例: --sc 200）
+
+`--hl`		指定した「行数」の結果を隠す
+
+`--hw`		指定した「単語数」の結果を隠す
+
+`--hh`		指定した「文字数」の結果を隠す
 
 
 
