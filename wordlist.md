@@ -1,5 +1,12 @@
 ## よく使う辞書
 
+```
+/usr/share/wordlists/dirb/common.txt
+```
+
+```
+/usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+```
 
 
 
