@@ -20,6 +20,12 @@
 /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
 ```
 
+隠しパラメーター
+
+```
+/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt
+```
+
 ## CEWL
 
 cewl -d  -m  -w [作成したい辞書の名前] http://$IP
