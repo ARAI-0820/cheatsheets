@@ -23,12 +23,9 @@
 /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
 ```
 
-標準的なリスト
 ```
-/usr/share/spiderfoot/spiderfoot/dicts/subdomains.txt
+/usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt
 ```
-
-
 
 ## CEWL
 
