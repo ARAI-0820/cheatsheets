@@ -38,9 +38,33 @@ gobuster dir -u http://$IP -w [wordlist]
 
 #### ffufオプション
 
-隠しサブドメインを探すとき
+#### 隠しサブドメインを探すとき
 
 `-H "Host: FUZZ.ドメイン"`
+
+#### 除外系
+
+`-fc 404,400(404と400を表示しない)`
+
+`-mc 200,301(成功とリダイレクトのみ表示)`
+
+`-fs 指定したレスポンスサイズを除外`
+
+`-fl レスポンスの行数で除外`
+
+#### リクエストのカスタマイズ
+
+`-H "[ヘッダー: 値]": HTTPヘッダーを追加・変更`
+
+例: -H "Host: FUZZ.target.thm"（Vhostのスキャン）
+
+例: -H "Authorization: Bearer [TOKEN]"（認証が必要な場合）
+
+-X [メソッド]: HTTPメソッドを指定します（GET, POST, PUTなど）。デフォルトは GET。
+
+-d "[データ]": POSTリクエストなどで送信するデータを指定します。
+
+例: -d "username=admin&password=FUZZ"
 
 `wfuzz -c -z file,[wordlist] http://TARGET/FUZZ`
 
