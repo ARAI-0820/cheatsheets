@@ -36,6 +36,11 @@ gobuster dir -u http://$IP -w [wordlist]
 
 `ffuf -u http://$IP/FUZZ -w [Wordlist]`
 
+#### ffufオプション
+
+隠しサブドメインを探すとき
+-H "Host: FUZZ.ドメイン"
+
 `wfuzz -c -z file,[wordlist] http://TARGET/FUZZ`
 
 #### wfuzzオプション
