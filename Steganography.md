@@ -52,3 +52,9 @@ RAR圧縮	.rar	`52 61 72 21 1A 07`	Rar!..
 ### exiftool
 画像やPDFのメタデータを確認する
 - `exiftool [file]` # メタデータを表示
+
+### zsteg
+
+`zsteg -a [file]`
+
+`-E`  データ抽出
