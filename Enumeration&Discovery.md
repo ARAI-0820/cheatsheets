@@ -85,7 +85,10 @@ gobuster dir -u http://$IP -w [wordlist]
 
 
 ```
-nikto -h http://$IP
+nuclei -u [ターゲットIPやURL]
+
+以下をスキャン前に実行して最新の状態を保つ
+sudo apt update && sudo apt upgrade nuclei -y
 ```
 
 
