@@ -8,6 +8,7 @@ rustscan -a $IP -- -sV -sC
 ```
 
 ` -r 1-65535` 全ポートを対象にする
+` -Pn` pingを飛ばさないでスキャンする
 
 
 ### 2. Web Directory Discovery
