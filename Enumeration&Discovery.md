@@ -4,7 +4,7 @@
 ### 1. Port Scanning
 
 ```
-rustscan -a $IP -- -sV -sC
+rustscan -a $IP -- -A
 ```
 
 ` -r 1-65535` 全ポートを対象にする
