@@ -4,7 +4,7 @@
 ### 1. Port Scanning
 
 ```
-rustscan -a $IP -- -A
+rustscan -a $IP -- -A  | tee scan.log 
 ```
 
 ` -p-` 全ポートを対象にする
