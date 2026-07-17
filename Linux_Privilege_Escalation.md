@@ -26,6 +26,12 @@ sudo -l
 find / -perm -4000 -type f 2>/dev/null
 ```
 
+## root所有の書き込み権限ファイルを探索
+
+```
+find / -path /proc -prune -o -path /sys -prune -o -path /var/lib/php/session -prune -o -writable -type f -user root 2>/dev/null
+```
+
 
 ## Capabilitiesの確認
 
