@@ -1,5 +1,7 @@
-ファイルの中身をすべてコピー　cat file.txt | xclip -selection clipboard
-
+ファイルの中身をすべてコピー　
+```
+at file.txt | xclip -selection clipboard
+```
 
 下へ移動: Ctrl + n
 
@@ -12,3 +14,5 @@
 スクショ　win ＋　fn ＋　p
 
 チルダ　　shift ＋　fn ＋　esc
+
+バッククォート　 fn + esc
