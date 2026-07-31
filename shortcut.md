@@ -1,6 +1,6 @@
 ファイルの中身をすべてコピー　
 ```
-at file.txt | xclip -selection clipboard
+cat file.txt | xclip -selection clipboard
 ```
 
 下へ移動: Ctrl + n
